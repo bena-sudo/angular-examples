@@ -1,0 +1,79 @@
+<nav class="py-2 bg-light border-bottom">
+  <div class="container d-flex flex-wrap">
+    <ul class="nav me-auto">
+      <!-- Navigation link: Home -->
+      <li class="nav-item">
+        <a
+          [routerLink]="['/home']"
+          routerLinkActive="['active']"
+          class="nav-link link-dark px-2"
+          aria-current="page"
+        >
+          Home
+        </a>
+      </li>
+      <!-- Navigation link: Recipes -->
+      <li class="nav-item">
+        <a
+          [routerLink]="['/recipes']"
+          routerLinkActive="['active']"
+          class="nav-link link-dark px-2"
+          aria-current="page"
+        >
+          Recipes
+        </a>
+      </li>
+      <!-- Navigation link: About -->
+      <li class="nav-item">
+        <a
+          [routerLink]="['/about']"
+          routerLinkActive="['active']"
+          class="nav-link link-dark px-2"
+          >About</a
+        >
+      </li>
+    </ul>
+
+    @if (logged) {
+      <div class="dropdown text-end">
+        <a
+          href="#"
+          class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://avatars.githubusercontent.com/u/91416378?v=4"
+            alt="mdo"
+            width="32"
+            height="32"
+            class="rounded-circle"
+          />
+        </a>
+        <ul class="dropdown-menu text-small">
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <button class="dropdown-item" (click)="onLogout()">Sign out</button>
+          </li>
+        </ul>
+      </div>
+    } @else {
+      <ul class="nav">
+        <!-- Navigation link: Sign in -->
+        <li class="nav-item">
+          <a [routerLink]="['/auth/signin']" class="nav-link link-dark px-2"
+            >Sign in</a
+          >
+        </li>
+        <!-- Navigation link: Sign up -->
+        <li class="nav-item">
+          <a [routerLink]="['/auth/signup']" class="nav-link link-dark px-2"
+            >Sign up</a
+          >
+        </li>
+      </ul>
+    }
+  </div>
+</nav>

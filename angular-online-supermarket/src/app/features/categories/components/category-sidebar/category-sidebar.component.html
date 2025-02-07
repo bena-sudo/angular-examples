@@ -1,0 +1,26 @@
+<div
+  class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary"
+  style="width: 280px"
+>
+  <a
+    [routerLink]="['/']"
+    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+  >
+    <img
+      src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-black.svg"
+      alt="Bootstrap Logo"
+      width="40"
+      height="32"
+      class="pe-none me-2"
+    />
+    <span class="fs-4">Categories</span>
+  </a>
+  <hr />
+  <ul class="nav nav-pills flex-column mb-auto">
+    @for (category of categories; track $index) {
+      <li class="nav-item">
+        <app-category-item-list [category]="category"></app-category-item-list>
+      </li>
+    }
+  </ul>
+</div>
